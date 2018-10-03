@@ -2,28 +2,42 @@
 	margin:0;
 }
 #wrapper{
-	height: 99vh;
 	width: 99vw;
 	text-align: center;
 }
 #songTitle{
 	font-size: 2em;
 	font-weight: bold; 
+	height: 4em;
+	width: 1px;
+	margin:10% auto;
+	position: relative;
+	animation-name: rotation;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+}
+.titleWrapper{
+	text-align: left;
 }
 #play{
-width: 20vw;
-height: 12vh;
-margin-top:5%; 
+	width: 15vw;
+	height: 12vh;
+	margin-top:5%; 
 }
 #pause{
-width: 20vw;
-height: 12vh;
-margin-top:5%; 
+	width: 15vw;
+	height: 12vh;
+	margin-top:5%; 
 }
 #next{
-width: 20vw;
-height: 12vh;
-margin-top:5%; 
+	width: 15vw;
+	height: 12vh;
+	margin-top:5%; 
+}
+#shuffle{
+	width: 15vw;
+	height: 12vh;
+	margin-top:5%; 
 }
 .extra{
 	margin-top: 5%;
@@ -35,4 +49,19 @@ margin-top:5%;
 	font-size: 2em;
 	height: 30vh;
 	width: 100%;
+}
+.list{
+	width: 15vw;
+	height: 12vh;
+	margin-top:5%; 
+}
+#isShuffleOn{
+	margin-top: 5%;
+}
+@keyframes rotation{
+    0% {margin-right: 1%;}
+    25%{margin-right: 50%}
+    50% {margin-right: 100%;}
+    75%{margin-right: 50%;}
+    100%{margin-right: 1%;}
 }

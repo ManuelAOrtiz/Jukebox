@@ -5,18 +5,18 @@ var userSongName = document.getElementById('userSongName');
 var userSongUrl = document.getElementById('userSongPath');
 var songList = document.getElementById('songList');
 var list = document.getElementById('list');
+var shuffle = document.getElementById('isShuffleOn');
 class JukeBox{
 	constructor(){
 		this.playlist = [];
 		this.index = 0;
 		this.shuffleOn = false;
+		this.listOfSong = [];
 	}
 	playSong(){
-		if(this.shuffleOn == true){
-			this.shuffleSong();
-		}
-
-		if(this.playlist[this.index].url.play()==false){
+		if(	this.playlist[this.index].url.play()==true){
+			this.pauseSong();
+		}else{
 			this.playlist[this.index].url.play();
 			title.innerHTML = this.playlist[this.index].name;
 		}
@@ -29,6 +29,9 @@ class JukeBox{
 	nextSong(){
 		this.playlist[this.index].url.pause();
 		this.playlist[this.index].url.currentTime = 0;
+		if(this.shuffleOn==true){
+			this.index = Math.round(Math.random()*this.playlist.length-1);
+		}
 		if(this.index<this.playlist.length-1){;
 			this.index++;
 			this.playSong();
@@ -36,16 +39,18 @@ class JukeBox{
 			this.index = 0;
 			this.playSong();
 		}
-	
 	}
 	shuffleSong(){
-		this.index = Math.round(Math.random()*this.playlist.length-1);
-		this.shuffleOn = true;
-		title.innerHTML = this.playlist[this.index].name;
-		this.playSong();
+		if(this.shuffleOn==false){
+			this.shuffleOn = true;
+			shuffle.innerHTML = 'Shuffle is now: On.';
+		}else{
+			this.shuffleOn = false;
+			shuffle.innerHTML = 'Shuffle is now: Off.';
+		}
 	}
-	selectSong(){
-		
+	selectSong(div, num){
+		this.index = num;
 	}
 	addSong(name,url){
 
@@ -53,10 +58,14 @@ class JukeBox{
 
 	}
 	listsSongs(){
+		list.innerHTML = " "
 		for(let i= 0; i < this.playlist.length; i++){
-			list.innerHTML += ' '+ (i+1) + '.) ' + this.playlist[i].name + "\n ";
+			var div = document.createElement('BUTTON');
+			div.id = 'songTitles'+i;
+			div.style.border = '2px solid';			
+			div.innerHTML += ' '+ (i+1) + '.) ' + this.playlist[i].name + "\n  ";
+			list.appendChild(div);	
 		}
-		
 	}
 }
 
@@ -67,8 +76,10 @@ class Song{
 	}
 }
 
-var songList = [new Song('Mario','music/SuperMarioBros.mp3'), new Song('Zelda', 'music/ZeldaMedleyPianoMan.mp3')];
+var songList = [new Song('Mario','music/SuperMarioBros.mp3'), new Song('Zelda', 'music/ZeldaMedleyPianoMan.mp3'), new Song('Sonic', 'music/GreenHillZoneRemix.mp3'), new Song('Pokemon', 'music/PokemonTheme.mp3')];
 var jukebox = new JukeBox();
+
+
 jukebox.playlist = songList;
 
 
@@ -76,4 +87,15 @@ add.addEventListener('click', function(){
 	jukebox.addSong(userSongName.value, userSongUrl.value);
 	userSongName.value = ' ';
 	userSongPath.value = ' ';
+})
+
+
+list.addEventListener('click', function(e){
+	var check = e.target.id.toString();
+	check = check.split('');
+	var passOrFail = false;
+	if(check[0]=="s"){
+		var number = parseInt(check[check.length-1]);
+		jukebox.index = number;
+	}jukebox.playSong();
 })
