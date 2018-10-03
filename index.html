@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="wrapper">
+
+	
+	<button id="play" onclick="jukebox.playSong()">Play</button>
+	<button id="pause" onclick="jukebox.pauseSong()">Pause</button>
+	<button id="next" onclick="jukebox.nextSong()">Next</button>
+	<button id="shuffle" onclick="jukebox.shuffleSong()">Shuffle</button>
+	
+
+	<p class="extra">If you want to input a song.</p>
+	Name: <input type="text" id="userSongName">
+	url: <input type="text" id="userSongPath">
+	<button id="add">Add</button>
+	<p id="songTitle"></p>
+	<div id="songList">
+		<p id="list"></p>
+	</div>
+		<p class="test">for adding song test</p>
+		<p>music/GreenHillZoneRemix.mp3</p>
+</div>
+
+
+
+
+
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

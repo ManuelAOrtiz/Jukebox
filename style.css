@@ -1,0 +1,38 @@
+*{
+	margin:0;
+}
+#wrapper{
+	height: 99vh;
+	width: 99vw;
+	text-align: center;
+}
+#songTitle{
+	font-size: 2em;
+	font-weight: bold; 
+}
+#play{
+width: 20vw;
+height: 12vh;
+margin-top:5%; 
+}
+#pause{
+width: 20vw;
+height: 12vh;
+margin-top:5%; 
+}
+#next{
+width: 20vw;
+height: 12vh;
+margin-top:5%; 
+}
+.extra{
+	margin-top: 5%;
+}
+.test{
+	margin-top: 5%;
+}
+#songList{
+	font-size: 2em;
+	height: 30vh;
+	width: 100%;
+}
