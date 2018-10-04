@@ -20,6 +20,7 @@ class JukeBox{
 		this.index = 0;
 		this.shuffleOn = false;
 		this.listOfSong = [];
+		this.customPlaylist = [];
 		
 	}
 	//this function is to play the songs
@@ -172,4 +173,12 @@ list.addEventListener('click', function(e){
 		jukebox.index = number;
 	}jukebox.playSong();
 	anim();
+})
+playlist.addEventListener('click', function(e){
+	var check = e.target.id.toString();
+	check = check.split('');
+	if(check[0]=="s"){
+		var number = parseInt(check[check.length-1]);
+		jukebox.index = number;
+	}
 })
