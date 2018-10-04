@@ -9,6 +9,7 @@ var musicNote1 = document.getElementById('musicImage1');
 var musicNote2 = document.getElementById('musicImage2');
 var musicNote3 = document.getElementById('musicImage3');
 var play = document.getElementById('play');
+var newPlaylist = document.getElementById('customPlaylist')
 
 
 
@@ -21,6 +22,7 @@ class JukeBox{
 		this.shuffleOn = false;
 		this.listOfSong = [];
 		this.customPlaylist = [];
+		this.customPlaylistTrueOrFalse = false;
 		
 	}
 	//this function is to play the songs
@@ -168,6 +170,7 @@ list.addEventListener('click', function(e){
 	check = check.split('');
 	jukebox.pauseSong();
 	play.innerHTML = "Play";
+	//if()
 	if(check[0]=="s"){
 		var number = parseInt(check[check.length-1]);
 		jukebox.index = number;
@@ -179,6 +182,6 @@ list.addEventListener('click', function(e){
 // 	check = check.split('');
 // 	if(check[0]=="s"){
 // 		var number = parseInt(check[check.length-1]);
-// 		jukebox.index = number;
+// 		jukebox.customPlaylist.push(number);
 // 	}
 // })
