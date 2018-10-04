@@ -174,11 +174,11 @@ list.addEventListener('click', function(e){
 	}jukebox.playSong();
 	anim();
 })
-playlist.addEventListener('click', function(e){
-	var check = e.target.id.toString();
-	check = check.split('');
-	if(check[0]=="s"){
-		var number = parseInt(check[check.length-1]);
-		jukebox.index = number;
-	}
-})
+// playlist.addEventListener('click', function(e){
+// 	var check = e.target.id.toString();
+// 	check = check.split('');
+// 	if(check[0]=="s"){
+// 		var number = parseInt(check[check.length-1]);
+// 		jukebox.index = number;
+// 	}
+// })
