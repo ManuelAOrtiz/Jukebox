@@ -6,6 +6,9 @@ var userSongUrl = document.getElementById('userSongPath');
 var songList = document.getElementById('songList');
 var list = document.getElementById('list');
 var shuffle = document.getElementById('isShuffleOn');
+var musicNote1 = document.getElementById('musicImage1');
+var musicNote2 = document.getElementById('musicImage2');
+var musicNote3 = document.getElementById('musicImage3');
 class JukeBox{
 	constructor(){
 		this.playlist = [];
@@ -22,9 +25,8 @@ class JukeBox{
 		}
 	}
 	pauseSong(){
-		if(this.playlist[this.index].url.pause()==false){
-			this.playlist[this.index].url.pause();
-		}
+		//title.innerHTML = ' ';
+		this.playlist[this.index].url.pause();
 	}
 	nextSong(){
 		this.playlist[this.index].url.pause();
@@ -75,6 +77,31 @@ class Song{
 		this.url = new Audio(url);
 	}
 }
+function anim(){
+	musicNote3.style.animationName = "fadeIn";
+	musicNote3.style.animationDuration = "7s";
+	musicNote3.style.animationIterationCount = "infinite";
+	musicNote3.style.animationPlayState = "running";
+
+	musicNote2.style.animationName = "fadeIn";
+	musicNote2.style.animationDuration = "10s";
+	musicNote2.style.animationIterationCount = "infinite";
+	musicNote2.style.animationPlayState = "running";
+
+	musicNote1.style.animationName = "fadeIn";
+	musicNote1.style.animationDuration = "15s";
+	musicNote1.style.animationIterationCount = "infinite";
+	musicNote1.style.animationPlayState = "running";
+
+	title.style.animationPlayState = "running"
+}
+function stopAnim(){
+	musicNote3.style.animationPlayState = "paused";
+	musicNote2.style.animationPlayState = "paused";
+	musicNote1.style.animationPlayState = "paused";
+
+	title.style.animationPlayState = "paused";
+}
 
 var songList = [new Song('Mario','music/SuperMarioBros.mp3'), new Song('Zelda', 'music/ZeldaMedleyPianoMan.mp3'), new Song('Sonic', 'music/GreenHillZoneRemix.mp3'), new Song('Pokemon', 'music/PokemonTheme.mp3')];
 var jukebox = new JukeBox();
@@ -90,12 +117,19 @@ add.addEventListener('click', function(){
 })
 
 
+play.addEventListener('click', function(){
+	anim()})
+pause.addEventListener('click', function(){
+	stopAnim();
+})
 list.addEventListener('click', function(e){
 	var check = e.target.id.toString();
 	check = check.split('');
 	var passOrFail = false;
+	jukebox.pauseSong();
 	if(check[0]=="s"){
 		var number = parseInt(check[check.length-1]);
 		jukebox.index = number;
 	}jukebox.playSong();
+	anim();
 })
