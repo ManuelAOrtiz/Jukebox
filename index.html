@@ -9,12 +9,18 @@
 
 	<div class="titleWrapper"><p id="songTitle"></p></div>
 	<div class="buttonWrapper">
+
+
 	<button id="play" onclick="jukebox.playSong()">Play</button>
-	<button id="pause" onclick="jukebox.pauseSong()">Pause</button>
 	<button id="next" onclick="jukebox.nextSong()">Next</button>
-	<button id="shuffle" onclick="jukebox.shuffleSong()">Shuffle</button>
-	<button class="list" onclick="jukebox.listsSongs()">List All Song</button>
-	<button></button>
+	<button id="shuffle" onclick="jukebox.shuffleSong()">Shuffle:Off</button>
+
+	<button class="blankButtons"></button>
+	
+	<button class="list" onclick="jukebox.listsSongs()">List All Song</button>	
+	<button id="previous" onclick="jukebox.previousSong()">Previous</button>
+
+
 
 		<div id="musicImage1" class="musicNote"></div>
 		<div id="musicImage2" class="musicNote"></div>
@@ -26,7 +32,6 @@
 	<p id="list"></p>
 </div>
 <div class="extra">
-	<div><p id="isShuffleOn">Shuffle is now: Off.</p></div>
 	<p class="extra">If you want to input a song.</p>
 	Name: <input type="text" id="userSongName">
 	url: <input type="text" id="userSongPath">
