@@ -20,8 +20,11 @@ class JukeBox{
 		this.index = 0;
 		this.shuffleOn = false;
 		this.listOfSong = [];
+		
 	}
+	//this function is to play the songs
 	playSong(){
+		var that = this;
 		if(	play.innerHTML == "Pause"){
 			this.pauseSong();
 			play.innerHTML = "Play"
@@ -29,6 +32,10 @@ class JukeBox{
 			this.playlist[this.index].url.play();
 			title.innerHTML = this.playlist[this.index].name;
 			play.innerHTML = "Pause"
+
+		}	
+		this.playlist[this.index].url.onended = function(){
+				that.nextSong();
 		}
 	}
 	pauseSong(){
@@ -127,7 +134,7 @@ function stopAnim(){
 	title.style.animationPlayState = "paused";
 }
 
-var songList = [new Song('Mario','music/SuperMarioBros.mp3'), new Song('Zelda', 'music/ZeldaMedleyPianoMan.mp3'), new Song('Sonic', 'music/GreenHillZoneRemix.mp3'), new Song('Pokemon', 'music/PokemonTheme.mp3')];
+var songList = [new Song('Mario','music/SuperMarioBros.mp3'), new Song('Zelda', 'music/ZeldaMedleyPianoMan.mp3'), new Song('Sonic', 'music/GreenHillZoneRemix.mp3'), new Song('Pokemon', 'music/PokemonTheme.mp3'), new Song('Genji', 'music/genji-halloween.ogg')];
 var jukebox = new JukeBox();
 
 

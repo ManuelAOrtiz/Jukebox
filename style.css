@@ -49,7 +49,7 @@
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr 1fr 1fr;
 	grid-column-gap: 40%;
-	margin:26% 5% 0 15.5%;
+	margin:24% 5% 0 15.5%;
 	width: 55%;
 	height: 7vh;
 	position: absolute;
@@ -72,20 +72,20 @@
 	height: 10vh;
 	width: 10vw;
 	position: absolute;
-	margin: 24% 0 0 55%;
+	margin: 20% 0 0 55%;
 }
 #musicImage2{
 	height: 7vh;
 	width: 7vw;
 	position: absolute;
-	margin: 55% 0 0 45%;
+	margin: 50% 0 0 45%;
 
 }
 #musicImage3{
 	height: 4vh;
 	width: 4vw;
 	position: absolute;
-	margin: 45% 0 0 43%;
+	margin: 40% 0 0 43%;
 }
 
 @keyframes fadeIn{
